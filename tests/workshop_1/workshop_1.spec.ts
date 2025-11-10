@@ -15,7 +15,7 @@ test('Interacting with GitLab web elements', async ({ page }) => {
  
 });
 
-test.only('Using various locator methods', async ({page}) => {
+test('Using various locator methods', async ({page}) => {
   await page.goto('https://gitlab.com/');
   await page.getByText('Accept All Cookies').click();
   await page.getByRole('link', { name: 'Sign in' }).click();
