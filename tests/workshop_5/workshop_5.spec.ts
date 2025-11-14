@@ -1,5 +1,4 @@
 import { test, expect } from '@playwright/test';
-import { isContext } from 'vm';
 
 test.skip('Open new window and navigate back', async ({ context, page }) => {
   await page.goto('file:///F:/Zay/playwright/tests/workshop_5/index.html');
@@ -23,7 +22,7 @@ test.skip('Add cookie', async ({ page }) => {
 });
 
 
-test.only('Delete cookie', async({page}) => {
+test('Delete cookie', async({page}) => {
   await page.goto('file:///F:/Zay/playwright/tests/workshop_5/index.html');
   await page.click('#setCookie');
     const cookies = await page.context().cookies('file:///F:/Zay/playwright/tests/workshop_5/index.html');
