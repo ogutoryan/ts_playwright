@@ -12,7 +12,7 @@ test.describe('User registration tests', () => {
     await page.goto('file:///F:/Zay/playwright/tests/workshop_6/index.html');
   });
 
-  test.only('Register with valid data', async ({ page }) => {
+  test.skip('Register with valid data', async ({ page }) => {
     await page.fill('#firstName', testData.firstName);
     await page.fill('#lastName', testData.lastName);
     await page.fill('#address', testData.address);
@@ -30,22 +30,18 @@ test.describe('User registration tests', () => {
     await expect(numberText).toEqual(testData.number);
   });
 
-  test.only('Register with some empty fields', async ({ page }) => {
+  test.skip('Register with some empty fields', async ({ page }) => {
     await page.fill('#firstName', testData.firstName);
     await page.fill('#lastName', testData.lastName);
     await page.click('#register');
-    const error = await page
-      .getByText('Please fill in all fields.')
-      .textContent();
+    const error = await page.getByText('Please fill in all fields.').textContent();
 
     expect(error).toBe('Please fill in all fields.');
   });
 
-  test.only('Register with all empty fields', async ({ page }) => {
+  test.skip('Register with all empty fields', async ({ page }) => {
     await page.click('#register');
-    const error = await page
-      .getByText('Please fill in all fields.')
-      .textContent();
+    const error = await page.getByText('Please fill in all fields.').textContent();
     expect(error).toBe('Please fill in all fields.');
   });
 });
